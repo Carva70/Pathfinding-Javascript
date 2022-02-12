@@ -1,0 +1,35 @@
+.board {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vmin;
+    width: 100vmin;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+}
+
+.blanco {
+    background-color: #ccc;
+}
+
+.wall {
+    background-color: black;
+}
+
+.start {
+    background-color: red;
+}
+
+.end {
+    background-color: blue;
+}
+
+.path {
+    background-color: yellow;
+}
+
+.visited {
+    background-color: darkcyan;
+}
