@@ -93,7 +93,63 @@ document.addEventListener('keydown', (event) => {
             }
             draw(table, board)
             break
+        case '1':
+            for (var i = 0; i < 30; i++) {
+                for (var j = 0; j < 30; j++) {
+                    table[i][j] = 0
+                }
+            }
+            getMap(table, board, inicio, final, 'map1.txt')
+            break
+        case '2':
+            for (var i = 0; i < 30; i++) {
+                for (var j = 0; j < 30; j++) {
+                    table[i][j] = 0
+                }
+            }
+            getMap(table, board, inicio, final, 'map2.txt')
+            break
+        case '3':
+            for (var i = 0; i < 30; i++) {
+                for (var j = 0; j < 30; j++) {
+                    table[i][j] = 0
+                }
+            }
+            getMap(table, board, inicio, final, 'map3.txt')
+            break
     }
 
     
 })
+
+function getMap(table, board, inicio, final, file) {
+    fetch(file)
+    .then(response => response.text())
+    .then(text => {
+
+        var mapa = text.split('\n')
+        for (var i = 0; i < mapa.length; i++) {
+            for (var j = 0; j < mapa[i].length; j++) {
+                switch(mapa[i][j]) {
+                    case '-' || ' ':
+                        table[i][j] = 0
+                        break
+                    case '#':
+                        table[i][j] = 1
+                        break
+                    case 'I':
+                        table[i][j] = 2
+                        inicio = [i, j]
+                        break
+                    case 'F':
+                        table[i][j] = 3
+                        final = [i, j]
+                        break
+                }
+            }
+        }
+        draw(table, board)
+    })
+
+    
+}
