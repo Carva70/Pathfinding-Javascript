@@ -101,7 +101,7 @@ export function search(start, end, table) {
                 path = element[1].slice()
                 path.push(hijos[i][0])
                 prof = element[3] + 1
-                queue.push([hijos[i][0], path, euclidean(hijos[i][0], end), prof])
+                queue.push([hijos[i][0], path, euclidean(hijos[i][0], end) + prof/2, prof])
             }
         }
 
@@ -138,7 +138,7 @@ export function searchManhattan(start, end, table) {
                 path = element[1].slice()
                 path.push(hijos[i][0])
                 prof = element[3] + 1
-                queue.push([hijos[i][0], path, manhattan(hijos[i][0], end) + prof/13, prof])
+                queue.push([hijos[i][0], path, manhattan(hijos[i][0], end) + prof/1.000001, prof])
             }
         }
 
